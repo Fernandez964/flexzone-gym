@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>FlexZone Gym | Enquiry - Request Information About Our Services</title>
+    <meta name="description" content="Send an enquiry to FlexZone Gym. Ask about memberships, personal training, group classes, volunteer opportunities, or sponsorship. Get information on pricing, availability, and more.">
+    <meta name="keywords" content="gym enquiry, fitness questions, membership enquiry, personal training enquiry, volunteer gym, gym sponsorship, Cape Town gym, gym pricing">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- HEADER - Main navigation and site branding -->
+    <header>
+        <h1>Enquire</h1>
+        
+        <!-- DROPDOWN NAVIGATION - Responsive menu for all pages -->
+        <nav>
+            <div class="dropdown">
+                <button class="dropbtn" aria-expanded="false" aria-controls="navDropdown">
+                    Menu
+                </button>
+                <div class="dropdown-content" id="navDropdown">
+                    <a href="index.html">Home</a>
+                    <a href="aboutus.html">About</a>
+                    <a href="services.html">Memberships</a>
+                    <a href="contactus.html">Contact</a>
+                    <a href="enquiry.html">Enquiry</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- ENQUIRY INTRODUCTION - Form description and purpose -->
+    <div class="intro-section">
+        <br>
+        <h2>If you have any enquiries, please fill out the form below</h2>
+    </div>
+
+    <!-- MAIN CONTENT - Service enquiry form -->
+    <main>
+        <div class="main-container">
+            <!-- ENQUIRY FORM SECTION - Service, product, volunteer or sponsor enquiries -->
+            <section class="enquiry-form">
+                <!-- ENQUIRY FORM - AJAX form submission with client-side validation -->
+                <form id="enquiryForm" action="#" method="post" novalidate>
+                    <div class="form-header">
+                        <h1>Enquire About Our Services</h1>
+                    </div>
+
+                    <!-- CONTACT FIELDS - Name and surname inputs -->
+                    <div class="form-row">
+                        <!-- NAME INPUT - User's first name for identification -->
+                        <div class="form-group">
+                            <label for="enquiryName">Name *</label>
+                            <input type="text" id="enquiryName" name="name" required placeholder="Your name">
+                            <span class="error-message" id="nameError"></span>
+                        </div>
+
+                        <!-- SURNAME INPUT - User's last name -->
+                        <div class="form-group">
+                            <label for="enquirySurname">Surname *</label>
+                            <input type="text" id="enquirySurname" name="surname" required placeholder="Your surname">
+                            <span class="error-message" id="surnameError"></span>
+                        </div>
+                    </div>
+
+                    <!-- INQUIRY TYPE SELECT - Category of enquiry including volunteer/sponsor options -->
+                    <div class="form-group">
+                        <label for="inquiry">Inquiry Type *</label>
+                        <select id="inquiry" name="inquiry" required>
+                            <option value="">Select Inquiry Type</option>
+                            <option value="membership">Membership</option>
+                            <option value="personal-training">Personal Training</option>
+                            <option value="classes">Classes</option>
+                            <option value="billing">Billing</option>
+                            <option value="volunteer">Volunteer Opportunity</option>
+                            <option value="sponsor">Sponsorship</option>
+                            <option value="general">General Enquiry</option>
+                        </select>
+                        <span class="error-message" id="inquiryError"></span>
+                    </div>
+
+                    <!-- CONTACT INFO - Email and mobile inputs -->
+                    <div class="form-row">
+                        <!-- EMAIL INPUT - Contact email address for response -->
+                        <div class="form-group">
+                            <label for="enquiryEmail">Email Address *</label>
+                            <input type="email" id="enquiryEmail" name="email" required placeholder="you@example.com">
+                            <span class="error-message" id="emailError"></span>
+                        </div>
+
+                        <!-- MOBILE INPUT - Contact phone number for follow-up -->
+                        <div class="form-group">
+                            <label for="enquiryMobile">Mobile Number *</label>
+                            <input type="tel" id="enquiryMobile" name="mobile" required placeholder="+27 (xx) xxx-xxxx">
+                            <span class="error-message" id="mobileError"></span>
+                        </div>
+                    </div>
+
+                    <!-- SUBMIT STATUS - AJAX response display area for cost/availability info -->
+                    <div class="form-status" id="enquiryStatus" aria-live="polite"></div>
+
+                    <!-- SUBMIT BUTTON - Send enquiry via AJAX -->
+                    <div class="form-actions">
+                        <button type="submit">Submit Enquiry</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+    
+    <!-- FOOTER - Copyright and site information -->
+    <footer>
+        <p>&copy; 2024 FlexZone Gym. All rights reserved.</p>
+        <p>Transform your fitness journey with us.</p>
+    </footer>
+</body>
+</html>
