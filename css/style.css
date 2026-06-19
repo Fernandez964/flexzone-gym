@@ -205,6 +205,47 @@ main {
   margin: auto;
 }
 
+/* ========================================
+    INTRO SECTION
+    ======================================== */
+.intro-section {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* ========================================
+    MAIN CONTAINER
+    ======================================== */
+.main-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ========================================
+    FORM HEADER
+    ======================================== */
+.form-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 107, 53, 0.3);
+}
+
+/* ========================================
+    FORM ROW - Side by side form fields
+    ======================================== */
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+/* ========================================
+    FORM ACTIONS - Button container
+    ======================================== */
+.form-actions {
+  margin-top: 0.5rem;
+}
+
 .search-section {
   background-color: rgba(54, 69, 79, 0.85);
   padding: 2rem;
