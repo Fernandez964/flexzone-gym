@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexZone Gym | About Us</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script defer src="js/script.js"></script>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <h1>About Us</h1>
+
+        <!-- DROPDOWN NAVIGATION -->
+        <nav>
+            <div class="dropdown">
+
+                <button class="dropbtn" aria-expanded="false" aria-controls="navDropdown">
+                    Menu
+                </button>
+
+                <div class="dropdown-content" id="navDropdown">
+                    <a href="index.html">Home</a>
+                    <a href="aboutus.html">About</a>
+                    <a href="services.html">Services</a>
+                    <a href="contactus.html">Contact</a>
+                    <a href="enquiry.html">Enquiry</a>
+                </div>
+
+            </div>
+        </nav>
+
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+        <section id="overview" class="reveal">
+            <h2>Organization Overview</h2>
+
+            <p>
+                Flex Zone Gym, founded in 2018 by Marcus Chen,
+                has grown from a 250 sq m facility into a 450 sq m
+                community wellness hub with more than 1,200 active
+                members in Cape Town.
+            </p>
+
+            <p>
+                The gym serves beginners to intermediate fitness
+                enthusiasts between the ages of 18 and 55 within a
+                5–10 km radius.
+            </p>
+
+            <p>
+                FlexZone Gym has also expanded its services to include
+                corporate wellness programs and youth fitness initiatives.
+            </p>
+        </section>
+
+        <section id="features" class="reveal">
+            <h2>Explore FlexZone</h2>
+
+            <div class="tabs" role="tablist" aria-label="FlexZone feature tabs">
+                <button class="tab-button active" id="tab-facilities-button" role="tab" aria-selected="true" aria-controls="tab-facilities" data-tab="facilities">
+                    Facilities
+                </button>
+                <button class="tab-button" id="tab-training-button" role="tab" aria-selected="false" aria-controls="tab-training" data-tab="training">
+                    Training
+                </button>
+                <button class="tab-button" id="tab-community-button" role="tab" aria-selected="false" aria-controls="tab-community" data-tab="community">
+                    Community
+                </button>
+            </div>
+
+            <div class="tab-panel active" id="tab-facilities" role="tabpanel" aria-labelledby="tab-facilities-button">
+                <h3>Modern Training Areas</h3>
+                <p>
+                    Explore dedicated cardio, strength, functional training, and recovery zones built for every fitness level.
+                </p>
+                <ul>
+                    <li>Selectorized and free-weight strength equipment</li>
+                    <li>Treadmills, rowers, bikes, and functional rigs</li>
+                    <li>Mobility space with stretching and recovery tools</li>
+                </ul>
+            </div>
+
+            <div class="tab-panel" id="tab-training" role="tabpanel" aria-labelledby="tab-training-button" hidden>
+                <h3>Personalized Coaching</h3>
+                <p>
+                    Trainers create practical plans that match your goals, schedule, and experience level.
+                </p>
+                <ul>
+                    <li>Beginner onboarding and movement assessments</li>
+                    <li>Weight-loss, strength, and conditioning programs</li>
+                    <li>Progress tracking and monthly goal reviews</li>
+                </ul>
+            </div>
+
+            <div class="tab-panel" id="tab-community" role="tabpanel" aria-labelledby="tab-community-button" hidden>
+                <h3>A Supportive Fitness Community</h3>
+                <p>
+                    FlexZone connects members through group challenges, wellness workshops, and social training events.
+                </p>
+                <ul>
+                    <li>Weekly group classes and member challenges</li>
+                    <li>Youth fitness and corporate wellness initiatives</li>
+                    <li>Supportive trainers who keep motivation high</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="faq" class="reveal">
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="accordion">
+                <div class="accordion-item">
+                    <h3>
+                        <button class="accordion-trigger active" type="button" aria-expanded="true" aria-controls="faq-answer-1" id="faq-trigger-1">
+                            Do beginners need previous gym experience?
+                            <span class="accordion-icon" aria-hidden="true">+</span>
+                        </button>
+                    </h3>
+                    <div class="accordion-panel active" id="faq-answer-1" role="region" aria-labelledby="faq-trigger-1">
+                        <p>
+                            No. FlexZone welcomes beginners and provides onboarding guidance, safe equipment introductions, and beginner-friendly training options.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3>
+                        <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="faq-answer-2" id="faq-trigger-2">
+                            Can members pause or upgrade their membership?
+                            <span class="accordion-icon" aria-hidden="true">+</span>
+                        </button>
+                    </h3>
+                    <div class="accordion-panel" id="faq-answer-2" role="region" aria-labelledby="faq-trigger-2">
+                        <p>
+                            Yes. Members can upgrade plans, add classes, or request temporary pauses through the membership desk or enquiry form.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h3>
+                        <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="faq-answer-3" id="faq-trigger-3">
+                            Are personal training sessions included?
+                            <span class="accordion-icon" aria-hidden="true">+</span>
+                        </button>
+                    </h3>
+                    <div class="accordion-panel" id="faq-answer-3" role="region" aria-labelledby="faq-trigger-3">
+                        <p>
+                            Premium and VIP memberships include wellness support, while personal training sessions can be added separately for more individualized coaching.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="location" class="reveal">
+            <h2>Find FlexZone Gym</h2>
+
+            <div class="map-layout">
+                <div>
+                    <h3>Cape Town Training Hub</h3>
+                    <p>
+                        Located within a 5–10 km radius of the main community areas served by FlexZone Gym.
+                    </p>
+                    <p>
+                        Use the interactive map to view the location marker and open the popup for gym details.
+                    </p>
+                    <button class="modal-trigger" type="button" data-modal="tourModal">Book a Tour</button>
+                </div>
+
+                <div id="locationMap" class="location-map" aria-label="Interactive map showing FlexZone Gym in Cape Town"></div>
+            </div>
+        </section>
+
+        <section id="gallery" class="reveal">
+            <h2>Gallery</h2>
+            <p>
+                Click any image to open the lightbox and view a larger version.
+            </p>
+            <div class="gallery" id="galleryGrid" aria-label="FlexZone Gym gallery"></div>
+        </section>
+
+        <section id="cta" class="reveal">
+            <h2>Ready to Start?</h2>
+            <p class="accent-border">
+                Book a free tour, meet a trainer, and experience the FlexZone community before committing.
+            </p>
+            <button class="modal-trigger" type="button" data-modal="tourModal">Book a Free Tour</button>
+        </section>
+    </main>
+
+    <div class="modal" id="tourModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="tourModalTitle">
+        <div class="modal-backdrop" data-close-modal></div>
+        <div class="modal-content" role="document">
+            <button class="modal-close" type="button" data-close-modal aria-label="Close tour booking modal">×</button>
+            <h2 id="tourModalTitle">Book a Free Tour</h2>
+            <form id="tourForm">
+                <label for="tourName">Name</label>
+                <input type="text" id="tourName" name="tourName" required placeholder="Your name">
+
+                <label for="tourEmail">Email</label>
+                <input type="email" id="tourEmail" name="tourEmail" required placeholder="you@example.com">
+
+                <label for="tourInterest">Interested In</label>
+                <select id="tourInterest" name="tourInterest" required>
+                    <option value="">Choose an option</option>
+                    <option value="membership">Membership</option>
+                    <option value="personal-training">Personal Training</option>
+                    <option value="classes">Group Classes</option>
+                    <option value="corporate-wellness">Corporate Wellness</option>
+                </select>
+
+                <button type="submit">Request Tour</button>
+                <p class="form-status" id="tourStatus" aria-live="polite"></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>&copy; 2024 FlexZone Gym. All rights reserved.</p>
+
+        <p>
+            Transform your fitness journey with us.
+        </p>
+
+    </footer>
+
+</body>
+</html>
