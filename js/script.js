@@ -3,21 +3,7 @@
     {
       title: 'Cardio Zone',
       alt: 'Cardio training area at FlexZone Gym',
-      src: svgData(`
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
-          <defs>
-            <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
-              <stop offset="0%" stop-color="#ff6b35"/>
-              <stop offset="100%" stop-color="#001f3f"/>
-            </linearGradient>
-          </defs>
-          <rect width="1200" height="800" fill="url(#g)"/>
-          <circle cx="980" cy="140" r="180" fill="#ffffff" opacity="0.12"/>
-          <circle cx="220" cy="660" r="240" fill="#ffffff" opacity="0.08"/>
-          <path d="M170 420h860M260 350h680M340 280h520" stroke="#ffffff" stroke-width="38" stroke-linecap="round" opacity="0.85"/>
-          <text x="600" y="520" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="72" fill="#ffffff" font-weight="700">CARDIO ZONE</text>
-        </svg>
-      `)
+      src: 'images/cardioarea.jpg'
     },
     {
       title: 'Strength Area',
