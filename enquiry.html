@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Basic Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enquiry Form</title>
-   <link rel="stylesheet" href="css/style.css">
+    
+    <!-- SEO Meta Tags -->
+    <title>FlexZone Gym | Enquiry - Send Your Questions</title>
+    <meta name="description" content="Send an enquiry to FlexZone Gym. Ask about memberships, personal training, group classes, or billing. We'll respond within 24 hours to help with your fitness goals.">
+    <meta name="keywords" content="gym enquiry, fitness questions, membership enquiry, personal training enquiry, Cape Town gym, gym contact form">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- HEADER - Main navigation and site branding -->
     <header>
         <h1>Enquire</h1>
+        
+        <!-- DROPDOWN NAVIGATION - Responsive menu for all pages -->
         <nav>
             <div class="dropdown">
-                <button class="dropbtn" aria-expanded="false" aria-controls="navDropdown">Menu</button>
-
+                <button class="dropbtn" aria-expanded="false" aria-controls="navDropdown">
+                    Menu
+                </button>
                 <div class="dropdown-content" id="navDropdown">
                     <a href="index.html">Home</a>
                     <a href="aboutus.html">About</a>
@@ -23,25 +34,27 @@
             </div>
         </nav>
     </header>
-    <br>
-        <h2>If you have any enquiries, please fill out the form below</h2>
     
-
-
-
-
+    <!-- ENQUIRY INTRODUCTION - Form description -->
+    <br>
+    <h2>If you have any enquiries, please fill out the form below</h2>
+    
+    <!-- MAIN CONTENT - Enquiry form -->
     <main>
-         
+        <!-- ENQUIRY FORM SECTION - User questions and contact details -->
         <section class="enquiry-form">
-
             <form action="#" method="post">
                 <h1>Enquire</h1>
+                
+                <!-- NAME INPUT - User's first name -->
                 <label for="name">Name</label><br>
                 <input type="text" id="name" name="name" required><br><br>
-
+                
+                <!-- SURNAME INPUT - User's last name -->
                 <label for="surname">Surname</label><br>
                 <input type="text" id="surname" name="surname" required><br><br>
-
+                
+                <!-- INQUIRY TYPE SELECT - Category selection dropdown -->
                 <label for="inquiry">Inquiry Type</label><br>
                 <select id="inquiry" name="inquiry" required>
                     <option value="">Select Inquiry Type</option>
@@ -51,26 +64,25 @@
                     <option value="billing">Billing</option>
                     <option value="general">General Enquiry</option>
                 </select><br><br>
-
+                
+                <!-- EMAIL INPUT - Contact email address -->
                 <label for="email">Email Address</label><br>
                 <input type="email" id="email" name="email" required><br><br>
-
+                
+                <!-- MOBILE INPUT - Contact phone number -->
                 <label for="mobile">Mobile Number</label><br>
                 <input type="tel" id="mobile" name="mobile" required><br><br>
-
+                
+                <!-- SUBMIT BUTTON - Send form -->
                 <button type="submit">Submit</button>
-
             </form>
-
         </section>
     </main>
-<footer>
-    <p>
-        &copy; 2024 FlexZone Gym. All rights reserved.
-    </p>
-    <p>
-        Transform your fitness journey with us.
-    </p>
-</footer>
+    
+    <!-- FOOTER - Copyright and site information -->
+    <footer>
+        <p>&copy; 2024 FlexZone Gym. All rights reserved.</p>
+        <p>Transform your fitness journey with us.</p>
+    </footer>
 </body>
 </html>

@@ -8,22 +8,7 @@
     {
       title: 'Strength Area',
       alt: 'Strength training area at FlexZone Gym',
-      src: svgData(`
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
-          <defs>
-            <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
-              <stop offset="0%" stop-color="#001f3f"/>
-              <stop offset="100%" stop-color="#ff6b35"/>
-            </linearGradient>
-          </defs>
-          <rect width="1200" height="800" fill="url(#g)"/>
-          <rect x="160" y="260" width="880" height="280" rx="28" fill="#ffffff" opacity="0.14"/>
-          <rect x="260" y="315" width="680" height="170" rx="18" fill="#ffffff" opacity="0.22"/>
-          <rect x="180" y="385" width="160" height="110" rx="18" fill="#ffffff" opacity="0.9"/>
-          <rect x="860" y="385" width="160" height="110" rx="18" fill="#ffffff" opacity="0.9"/>
-          <text x="600" y="610" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="68" fill="#ffffff" font-weight="700">STRENGTH AREA</text>
-        </svg>
-      `)
+      src: 'images/strengtharea.jpg'
     },
     {
       title: 'Group Classes',
@@ -121,6 +106,7 @@
     initGallery();
     initRevealAnimations();
     initMap();
+    initSearch();
   });
 
   function svgData(svg) {
@@ -433,4 +419,47 @@
       }
     }
   });
+
+  function initSearch() {
+    const searchInput = document.getElementById('serviceSearch');
+    const sortSelect = document.getElementById('sortSelect');
+    const searchStatus = document.getElementById('searchStatus');
+    const serviceSections = document.querySelectorAll('section[data-category]');
+    const membershipContainer = document.querySelector('.membership-section');
+    const membershipItems = document.querySelectorAll('.service-item');
+
+    if (!searchInput && !sortSelect) return;
+
+    function filterServices() {
+      const query = searchInput.value.toLowerCase().trim();
+
+      serviceSections.forEach((section) => {
+        const textContent = section.textContent.toLowerCase();
+        const matches = textContent.includes(query);
+        section.style.display = matches ? '' : 'none';
+      });
+
+      if (searchStatus) {
+        const visibleCount = document.querySelectorAll('section[data-category]:not([style*="display: none"])').length;
+        searchStatus.textContent = query ? `Showing ${visibleCount} result${visibleCount !== 1 ? 's' : ''} for "${searchInput.value}"` : '';
+      }
+    }
+
+    function sortServices() {
+      const sortValue = sortSelect.value;
+      if (!membershipContainer || sortValue === 'default') return;
+
+      const itemsArray = Array.from(membershipItems);
+      itemsArray.sort((a, b) => {
+        const priceA = parseInt(a.dataset.price) || 0;
+        const priceB = parseInt(b.dataset.price) || 0;
+        return sortValue === 'price-asc' ? priceA - priceB : priceB - priceA;
+      });
+
+      itemsArray.forEach((item) => membershipContainer.appendChild(item));
+    }
+
+    searchInput.addEventListener('input', filterServices);
+    sortSelect.addEventListener('change', sortServices);
+  }
 })();
