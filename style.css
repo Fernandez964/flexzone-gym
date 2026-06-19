@@ -1,0 +1,383 @@
+/* ========================================
+   GOOGLE FONTS
+   ======================================== */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@600&family=Open+Sans:wght@400;500&display=swap');
+
+/* ========================================
+   ROOT VARIABLES
+   ======================================== */
+:root {
+  --deep-navy: #001f3f;
+  --bright-orange: #ff6b35;
+  --charcoal-grey: #36454f;
+  --light-silver: #e8e8e8;
+  --light-grey: #c0c0c0;
+  --white: #ffffff;
+}
+
+/* ========================================
+   GLOBAL RESET
+   ======================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========================================
+   BODY STYLING
+   ======================================== */
+body {
+  background-image: url("StockCake-Futuristic_Gym_Interior-1094964-medium(1).jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  background-color: var(--deep-navy);
+
+  color: var(--white);
+
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0px;
+
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 36px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+
+  display: inline-block;
+
+  padding: 0.8rem 1.2rem;
+
+  border-radius: 10px;
+
+  border: 2px solid var(--bright-orange);
+
+  background-color: rgba(255, 107, 53, 0.15);
+}
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.8rem;
+}
+
+h4 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+/* ========================================
+   HEADER
+   FLEXBOX LAYOUT
+   ======================================== */
+
+header {
+  background-color: rgba(54, 69, 79, 0.9);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 2rem 4rem;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* ========================================
+   NAVIGATION
+   ======================================== */
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+/* DROPDOWN */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: var(--bright-orange);
+  color: var(--white);
+
+  padding: 12px 20px;
+
+  border: none;
+  border-radius: 6px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.dropdown-content {
+  display: none;
+
+  position: absolute;
+
+  background-color: var(--charcoal-grey);
+
+  min-width: 180px;
+
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+
+  z-index: 1;
+}
+
+.dropdown-content a {
+  display: block;
+
+  padding: 14px 16px;
+
+  color: var(--white);
+
+  text-decoration: none;
+
+  transition: background 0.3s;
+}
+
+.dropdown-content a:hover {
+  background-color: var(--bright-orange);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* ========================================
+   MAIN LAYOUT
+   CSS GRID
+   ======================================== */
+
+main {
+  flex: 1;
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+  gap: 2rem;
+
+  padding: 3rem;
+
+  max-width: 1400px;
+
+  margin: auto;
+}
+
+/* ========================================
+   SECTION STYLING
+   ======================================== */
+
+section {
+  background-color: rgba(54, 69, 79, 0.85);
+
+  padding: 2rem;
+
+  border-radius: 12px;
+
+  backdrop-filter: blur(5px);
+
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+/* ========================================
+   BUTTONS
+   ======================================== */
+
+button,
+.btn {
+  background-color: var(--bright-orange);
+
+  color: var(--white);
+
+  border: none;
+  border-radius: 6px;
+
+  padding: 12px 20px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+}
+
+button:hover,
+.btn:hover {
+  background-color: #ff5722;
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   FORMS
+   FLEXBOX
+   ======================================== */
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+
+  padding: 0.9rem;
+
+  border: 1px solid var(--light-grey);
+
+  border-radius: 6px;
+
+  font-size: 16px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border: 2px solid var(--bright-orange);
+}
+
+/* ========================================
+   ACCENT
+   ======================================== */
+
+.accent-border {
+  border-left: 4px solid var(--bright-orange);
+  padding-left: 1rem;
+}
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+footer {
+  background-color: rgba(54, 69, 79, 0.9);
+
+  text-align: center;
+
+  padding: 1.5rem;
+
+  margin-top: 2rem;
+
+  color: var(--light-grey);
+
+  border-top: 2px solid var(--bright-orange);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+/* TABLETS */
+@media (max-width: 768px) {
+
+  header {
+    flex-direction: column;
+    gap: 1rem;
+
+    text-align: center;
+
+    padding: 1.5rem;
+  }
+
+  main {
+    grid-template-columns: 1fr;
+
+    padding: 1.5rem;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+  .dropbtn {
+    width: 100%;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+
+  header {
+    padding: 1rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  section {
+    padding: 1.2rem;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  button,
+  .btn {
+    width: 100%;
+  }
+}
