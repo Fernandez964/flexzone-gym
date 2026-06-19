@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Basic Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- SEO Meta Tags -->
-    <title>FlexZone Gym | About Us - Our Story and Community</title>
-    <meta name="description" content="Learn about FlexZone Gym founded in 2018. Discover our modern facilities, personalized training programs, and supportive fitness community in Cape Town serving 1,200+ members.">
-    <meta name="keywords" content="about gym, fitness center history, Cape Town gym, gym facilities, personal trainers, fitness community, wellness programs">
-    
-    <!-- Styles and Scripts -->
+    <title>FlexZone Gym | About Us</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script defer src="js/script.js"></script>
 </head>
+
 <body>
-    <!-- HEADER - Main navigation and site branding -->
+
+    <!-- HEADER -->
     <header>
+
         <h1>About Us</h1>
-        
-        <!-- DROPDOWN NAVIGATION - Responsive menu for all pages -->
+
+        <!-- DROPDOWN NAVIGATION -->
         <nav>
             <div class="dropdown">
+
                 <button class="dropbtn" aria-expanded="false" aria-controls="navDropdown">
-                    Menu
+                    Menu 
                 </button>
+
                 <div class="dropdown-content" id="navDropdown">
                     <a href="index.html">Home</a>
                     <a href="aboutus.html">About</a>
@@ -34,40 +32,39 @@
                     <a href="contactus.html">Contact</a>
                     <a href="enquiry.html">Enquiry</a>
                 </div>
+
             </div>
         </nav>
+
     </header>
 
-    <!-- MAIN CONTENT - About page sections with accordion and tabs -->
+    <!-- MAIN CONTENT -->
     <main>
-        <!-- ORGANIZATION OVERVIEW - Gym history and membership stats -->
         <section id="overview" class="reveal">
             <h2>Organization Overview</h2>
-            
+
             <p>
                 Flex Zone Gym, founded in 2018 by Marcus Chen,
                 has grown from a 250 sq m facility into a 450 sq m
                 community wellness hub with more than 1,200 active
                 members in Cape Town.
             </p>
-            
+
             <p>
                 The gym serves beginners to intermediate fitness
                 enthusiasts between the ages of 18 and 55 within a
                 5–10 km radius.
             </p>
-            
+
             <p>
                 FlexZone Gym has also expanded its services to include
                 corporate wellness programs and youth fitness initiatives.
             </p>
         </section>
 
-        <!-- FEATURES SECTION - Interactive tabs for facilities, training, and community -->
         <section id="features" class="reveal">
             <h2>Explore FlexZone</h2>
-            
-            <!-- TABS NAVIGATION - Switch between facilities, training, and community views -->
+
             <div class="tabs" role="tablist" aria-label="FlexZone feature tabs">
                 <button class="tab-button active" id="tab-facilities-button" role="tab" aria-selected="true" aria-controls="tab-facilities" data-tab="facilities">
                     Facilities
@@ -79,8 +76,7 @@
                     Community
                 </button>
             </div>
-            
-            <!-- FACILITIES TAB PANEL - Equipment and training areas information -->
+
             <div class="tab-panel active" id="tab-facilities" role="tabpanel" aria-labelledby="tab-facilities-button">
                 <h3>Modern Training Areas</h3>
                 <p>
@@ -92,8 +88,7 @@
                     <li>Mobility space with stretching and recovery tools</li>
                 </ul>
             </div>
-            
-            <!-- TRAINING TAB PANEL - Personal coaching programs -->
+
             <div class="tab-panel" id="tab-training" role="tabpanel" aria-labelledby="tab-training-button" hidden>
                 <h3>Personalized Coaching</h3>
                 <p>
@@ -105,8 +100,7 @@
                     <li>Progress tracking and monthly goal reviews</li>
                 </ul>
             </div>
-            
-            <!-- COMMUNITY TAB PANEL - Social fitness initiatives -->
+
             <div class="tab-panel" id="tab-community" role="tabpanel" aria-labelledby="tab-community-button" hidden>
                 <h3>A Supportive Fitness Community</h3>
                 <p>
@@ -120,12 +114,10 @@
             </div>
         </section>
 
-        <!-- FAQ SECTION - Frequently asked questions accordion -->
         <section id="faq" class="reveal">
             <h2>Frequently Asked Questions</h2>
-            
+
             <div class="accordion">
-                <!-- BEGINNER FAQ ITEM - Experience requirements -->
                 <div class="accordion-item">
                     <h3>
                         <button class="accordion-trigger active" type="button" aria-expanded="true" aria-controls="faq-answer-1" id="faq-trigger-1">
@@ -140,7 +132,6 @@
                     </div>
                 </div>
 
-                <!-- MEMBERSHIP FAQ ITEM - Plan changes and pauses -->
                 <div class="accordion-item">
                     <h3>
                         <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="faq-answer-2" id="faq-trigger-2">
@@ -155,7 +146,6 @@
                     </div>
                 </div>
 
-                <!-- TRAINING FAQ ITEM - Session inclusion -->
                 <div class="accordion-item">
                     <h3>
                         <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="faq-answer-3" id="faq-trigger-3">
@@ -172,11 +162,9 @@
             </div>
         </section>
 
-        <!-- LOCATION SECTION - Interactive map with tour booking -->
         <section id="location" class="reveal">
             <h2>Find FlexZone Gym</h2>
-            
-            <!-- MAP LAYOUT - Split view with location details and map -->
+
             <div class="map-layout">
                 <div>
                     <h3>Cape Town Training Hub</h3>
@@ -188,13 +176,11 @@
                     </p>
                     <button class="modal-trigger" type="button" data-modal="tourModal">Book a Tour</button>
                 </div>
-                
-                <!-- LOCATION MAP - Leaflet interactive map -->
+
                 <div id="locationMap" class="location-map" aria-label="Interactive map showing FlexZone Gym in Cape Town"></div>
             </div>
         </section>
 
-        <!-- GALLERY SECTION - Image gallery with lightbox -->
         <section id="gallery" class="reveal">
             <h2>Gallery</h2>
             <p>
@@ -203,7 +189,6 @@
             <div class="gallery" id="galleryGrid" aria-label="FlexZone Gym gallery"></div>
         </section>
 
-        <!-- CALL TO ACTION - Final encouragement to join -->
         <section id="cta" class="reveal">
             <h2>Ready to Start?</h2>
             <p class="accent-border">
@@ -213,7 +198,6 @@
         </section>
     </main>
 
-    <!-- TOUR MODAL - Form for booking gym tours -->
     <div class="modal" id="tourModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="tourModalTitle">
         <div class="modal-backdrop" data-close-modal></div>
         <div class="modal-content" role="document">
@@ -222,10 +206,10 @@
             <form id="tourForm">
                 <label for="tourName">Name</label>
                 <input type="text" id="tourName" name="tourName" required placeholder="Your name">
-                
+
                 <label for="tourEmail">Email</label>
                 <input type="email" id="tourEmail" name="tourEmail" required placeholder="you@example.com">
-                
+
                 <label for="tourInterest">Interested In</label>
                 <select id="tourInterest" name="tourInterest" required>
                     <option value="">Choose an option</option>
@@ -234,17 +218,22 @@
                     <option value="classes">Group Classes</option>
                     <option value="corporate-wellness">Corporate Wellness</option>
                 </select>
-                
+
                 <button type="submit">Request Tour</button>
-                <p class="form-status" id="tourStatus" aria-live="polite"></p>
             </form>
         </div>
     </div>
 
-    <!-- FOOTER - Copyright and site information -->
+    <!-- FOOTER -->
     <footer>
+
         <p>&copy; 2024 FlexZone Gym. All rights reserved.</p>
-        <p>Transform your fitness journey with us.</p>
+
+        <p>
+            Transform your fitness journey with us.
+        </p>
+
     </footer>
+
 </body>
 </html>
