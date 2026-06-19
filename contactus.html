@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Basic Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
     <title>FlexZone Gym | Contact Us</title>
-   <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
-    <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script defer src="js/script.js"></script>
+    <meta name="description" content="Contact FlexZone Gym in Cape Town. Reach our memberships, personal training, corporate wellness, and support teams via phone or email for all your fitness enquiries.">
+    <meta name="keywords" content="contact gym, Cape Town gym contact, gym phone number, gym email, fitness inquiries, gym membership contact">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
+    <!-- HEADER - Main navigation and site branding -->
     <header>
         <h1>Contact Us</h1>
-
+        
+        <!-- DROPDOWN NAVIGATION - Responsive menu for all pages -->
         <nav>
             <div class="dropdown">
-                <button class="dropbtn" aria-expanded="false" aria-controls="navDropdown">Menu</button>
-
+                <button class="dropbtn" aria-expanded="false" aria-controls="navDropdown">
+                    Menu
+                </button>
                 <div class="dropdown-content" id="navDropdown">
                     <a href="index.html">Home</a>
                     <a href="aboutus.html">About</a>
@@ -29,48 +35,106 @@
         </nav>
     </header>
 
+    <!-- MAIN CONTENT - Contact information and general message form -->
     <main>
-
-        <section>
+        <!-- CONTACT INFORMATION SECTION - Department contact details -->
+        <section class="contact-info">
             <h2>General Contact Information</h2>
-
+            
             <p>
                 Get in touch with FlexZone Gym for memberships, classes,
                 personal training, corporate wellness, and support enquiries.
             </p>
-    <br>
-
+            
+            <!-- DEPARTMENT CONTACT DETAILS - Specific email and phone for each department -->
             <h2>Department Contacts:</h2>
-
+            
+            <!-- MEMBERSHIPS CONTACT - Billing and plan enquiries -->
             <h3>Memberships</h3>
             <p>Email: memberships@flexzonegym.co.za</p>
             <p>Phone: +27 (21) 555-0150</p>
-
+            
+            <!-- PERSONAL TRAINING CONTACT - PT session bookings -->
             <h3>Personal Training</h3>
             <p>Email: training@flexzonegym.co.za</p>
             <p>Phone: +27 (21) 555-0151</p>
-
+            
+            <!-- CORPORATE WELLNESS CONTACT - Business wellness programs -->
             <h3>Corporate Wellness</h3>
             <p>Email: corporate@flexzonegym.co.za</p>
             <p>Phone: +27 (21) 555-0152</p>
-
+            
+            <!-- CLASSES CONTACT - Group class scheduling -->
             <h3>Classes & Events</h3>
             <p>Email: classes@flexzonegym.co.za</p>
             <p>Phone: +27 (21) 555-0153</p>
-
+            
+            <!-- SUPPORT CONTACT - Account and technical support -->
             <h3>Support & Billing</h3>
             <p>Email: support@flexzonegym.co.za</p>
             <p>Phone: +27 (21) 555-0154</p>
         </section>
         
+        <!-- GENERAL MESSAGE FORM SECTION - User feedback and general inquiries -->
+        <section class="contact-form-section">
+            <h2>Send Us a Message</h2>
+            
+            <!-- CONTACT FORM - AJAX form submission for user messages -->
+            <form id="contactForm" class="contact-form" novalidate>
+                <!-- NAME INPUT - User's full name for identification -->
+                <div class="form-group">
+                    <label for="contactName">Full Name *</label>
+                    <input type="text" id="contactName" name="name" required placeholder="Your full name">
+                    <span class="error-message" id="nameError"></span>
+                </div>
+                
+                <!-- EMAIL INPUT - Contact email address -->
+                <div class="form-group">
+                    <label for="contactEmail">Email Address *</label>
+                    <input type="email" id="contactEmail" name="email" required placeholder="you@example.com">
+                    <span class="error-message" id="emailError"></span>
+                </div>
+                
+                <!-- PHONE INPUT - Optional contact phone number -->
+                <div class="form-group">
+                    <label for="contactPhone">Phone Number</label>
+                    <input type="tel" id="contactPhone" name="phone" placeholder="+27 (xx) xxx-xxxx">
+                    <span class="error-message" id="phoneError"></span>
+                </div>
+                
+                <!-- MESSAGE TYPE SELECT - Category of enquiry -->
+                <div class="form-group">
+                    <label for="messageType">Message Type *</label>
+                    <select id="messageType" name="messageType" required>
+                        <option value="">Select Message Type</option>
+                        <option value="feedback">Feedback</option>
+                        <option value="suggestion">Suggestion</option>
+                        <option value="complaint">Complaint</option>
+                        <option value="general">General Inquiry</option>
+                    </select>
+                    <span class="error-message" id="typeError"></span>
+                </div>
+                
+                <!-- MESSAGE TEXTAREA - Full message content -->
+                <div class="form-group">
+                    <label for="contactMessage">Message *</label>
+                    <textarea id="contactMessage" name="message" required placeholder="Type your message here..." rows="5"></textarea>
+                    <span class="error-message" id="messageError"></span>
+                </div>
+                
+                <!-- SUBMIT STATUS - AJAX response display area -->
+                <div class="form-status" id="contactStatus" aria-live="polite"></div>
+                
+                <!-- SUBMIT BUTTON - Send form data asynchronously -->
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
     </main>
+    
+    <!-- FOOTER - Copyright and site information -->
     <footer>
-    <p>
-        &copy; 2024 FlexZone Gym. All rights reserved.
-    </p>
-    <p>
-        Transform your fitness journey with us.
-    </p>
-</footer>
+        <p>&copy; 2024 FlexZone Gym. All rights reserved.</p>
+        <p>Transform your fitness journey with us.</p>
+    </footer>
 </body>
 </html>

@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
-    <title>FlexZone Gym | Enquiry - Send Your Questions</title>
-    <meta name="description" content="Send an enquiry to FlexZone Gym. Ask about memberships, personal training, group classes, or billing. We'll respond within 24 hours to help with your fitness goals.">
-    <meta name="keywords" content="gym enquiry, fitness questions, membership enquiry, personal training enquiry, Cape Town gym, gym contact form">
+    <title>FlexZone Gym | Enquiry - Request Information About Our Services</title>
+    <meta name="description" content="Send an enquiry to FlexZone Gym. Ask about memberships, personal training, group classes, volunteer opportunities, or sponsorship. Get information on pricing, availability, and more.">
+    <meta name="keywords" content="gym enquiry, fitness questions, membership enquiry, personal training enquiry, volunteer gym, gym sponsorship, Cape Town gym, gym pricing">
     
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
@@ -35,46 +35,67 @@
         </nav>
     </header>
     
-    <!-- ENQUIRY INTRODUCTION - Form description -->
+    <!-- ENQUIRY INTRODUCTION - Form description and purpose -->
     <br>
     <h2>If you have any enquiries, please fill out the form below</h2>
-    
-    <!-- MAIN CONTENT - Enquiry form -->
+
+    <!-- MAIN CONTENT - Service enquiry form -->
     <main>
-        <!-- ENQUIRY FORM SECTION - User questions and contact details -->
+        <!-- ENQUIRY FORM SECTION - Service, product, volunteer or sponsor enquiries -->
         <section class="enquiry-form">
-            <form action="#" method="post">
-                <h1>Enquire</h1>
+            <!-- ENQUIRY FORM - AJAX form submission with client-side validation -->
+            <form id="enquiryForm" action="#" method="post" novalidate>
+                <h1>Enquire About Our Services</h1>
                 
-                <!-- NAME INPUT - User's first name -->
-                <label for="name">Name</label><br>
-                <input type="text" id="name" name="name" required><br><br>
+                <!-- NAME INPUT - User's first name for identification -->
+                <div class="form-group">
+                    <label for="enquiryName">Name *</label>
+                    <input type="text" id="enquiryName" name="name" required placeholder="Your name">
+                    <span class="error-message" id="nameError"></span>
+                </div>
                 
                 <!-- SURNAME INPUT - User's last name -->
-                <label for="surname">Surname</label><br>
-                <input type="text" id="surname" name="surname" required><br><br>
+                <div class="form-group">
+                    <label for="enquirySurname">Surname *</label>
+                    <input type="text" id="enquirySurname" name="surname" required placeholder="Your surname">
+                    <span class="error-message" id="surnameError"></span>
+                </div>
                 
-                <!-- INQUIRY TYPE SELECT - Category selection dropdown -->
-                <label for="inquiry">Inquiry Type</label><br>
-                <select id="inquiry" name="inquiry" required>
-                    <option value="">Select Inquiry Type</option>
-                    <option value="membership">Membership</option>
-                    <option value="personal-training">Personal Training</option>
-                    <option value="classes">Classes</option>
-                    <option value="billing">Billing</option>
-                    <option value="general">General Enquiry</option>
-                </select><br><br>
+                <!-- INQUIRY TYPE SELECT - Category of enquiry including volunteer/sponsor options -->
+                <div class="form-group">
+                    <label for="inquiry">Inquiry Type *</label>
+                    <select id="inquiry" name="inquiry" required>
+                        <option value="">Select Inquiry Type</option>
+                        <option value="membership">Membership</option>
+                        <option value="personal-training">Personal Training</option>
+                        <option value="classes">Classes</option>
+                        <option value="billing">Billing</option>
+                        <option value="volunteer">Volunteer Opportunity</option>
+                        <option value="sponsor">Sponsorship</option>
+                        <option value="general">General Enquiry</option>
+                    </select>
+                    <span class="error-message" id="inquiryError"></span>
+                </div>
                 
-                <!-- EMAIL INPUT - Contact email address -->
-                <label for="email">Email Address</label><br>
-                <input type="email" id="email" name="email" required><br><br>
+                <!-- EMAIL INPUT - Contact email address for response -->
+                <div class="form-group">
+                    <label for="enquiryEmail">Email Address *</label>
+                    <input type="email" id="enquiryEmail" name="email" required placeholder="you@example.com">
+                    <span class="error-message" id="emailError"></span>
+                </div>
                 
-                <!-- MOBILE INPUT - Contact phone number -->
-                <label for="mobile">Mobile Number</label><br>
-                <input type="tel" id="mobile" name="mobile" required><br><br>
+                <!-- MOBILE INPUT - Contact phone number for follow-up -->
+                <div class="form-group">
+                    <label for="enquiryMobile">Mobile Number *</label>
+                    <input type="tel" id="enquiryMobile" name="mobile" required placeholder="+27 (xx) xxx-xxxx">
+                    <span class="error-message" id="mobileError"></span>
+                </div>
                 
-                <!-- SUBMIT BUTTON - Send form -->
-                <button type="submit">Submit</button>
+                <!-- SUBMIT STATUS - AJAX response display area for cost/availability info -->
+                <div class="form-status" id="enquiryStatus" aria-live="polite"></div>
+                
+                <!-- SUBMIT BUTTON - Send enquiry via AJAX -->
+                <button type="submit">Submit Enquiry</button>
             </form>
         </section>
     </main>

@@ -349,6 +349,20 @@ textarea:focus {
   border: 2px solid var(--bright-orange);
 }
 
+/* FORM GROUP STYLING - Container for label, input and error message */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+/* ERROR MESSAGE STYLING - Display validation errors in red */
+.error-message {
+  color: #ff6b6b;
+  font-size: 14px;
+  min-height: 1.2em;
+}
+
 /* ========================================
    ACCENT
    ======================================== */

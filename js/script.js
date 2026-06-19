@@ -8,7 +8,22 @@
     {
       title: 'Strength Area',
       alt: 'Strength training area at FlexZone Gym',
-      src: 'images/strengtharea.jpg'
+      src: svgData(`
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+          <defs>
+            <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0%" stop-color="#001f3f"/>
+              <stop offset="100%" stop-color="#ff6b35"/>
+            </linearGradient>
+          </defs>
+          <rect width="1200" height="800" fill="url(#g)"/>
+          <rect x="160" y="260" width="880" height="280" rx="28" fill="#ffffff" opacity="0.14"/>
+          <rect x="260" y="315" width="680" height="170" rx="18" fill="#ffffff" opacity="0.22"/>
+          <rect x="180" y="385" width="160" height="110" rx="18" fill="#ffffff" opacity="0.9"/>
+          <rect x="860" y="385" width="160" height="110" rx="18" fill="#ffffff" opacity="0.9"/>
+          <text x="600" y="610" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="68" fill="#ffffff" font-weight="700">STRENGTH AREA</text>
+        </svg>
+      `)
     },
     {
       title: 'Group Classes',
@@ -106,7 +121,8 @@
     initGallery();
     initRevealAnimations();
     initMap();
-    initSearch();
+    initEnquiryForm();
+    initContactForm();
   });
 
   function svgData(svg) {
@@ -306,7 +322,7 @@
     lightbox.setAttribute('aria-hidden', 'true');
     lightbox.innerHTML = `
       <div class="lightbox-panel" role="dialog" aria-modal="true" aria-labelledby="lightboxCaption">
-        <button class="lightbox-close" type="button" aria-label="Close gallery lightbox">×</button>
+        <button class="lightbox-close" type="button" aria-label="Close gallery lightbox">Ã—</button>
         <img class="lightbox-image" alt="">
         <div class="lightbox-caption" id="lightboxCaption"></div>
       </div>
@@ -420,46 +436,192 @@
     }
   });
 
-  function initSearch() {
-    const searchInput = document.getElementById('serviceSearch');
-    const sortSelect = document.getElementById('sortSelect');
-    const searchStatus = document.getElementById('searchStatus');
-    const serviceSections = document.querySelectorAll('section[data-category]');
-    const membershipContainer = document.querySelector('.membership-section');
-    const membershipItems = document.querySelectorAll('.service-item');
+  // ========================================
+  // FORM VALIDATION AND AJAX SUBMISSION
+  // ========================================
 
-    if (!searchInput && !sortSelect) return;
+  function validateEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
 
-    function filterServices() {
-      const query = searchInput.value.toLowerCase().trim();
+  function validatePhone(phone) {
+    const phoneRegex = /^(\+\d{1,3}\s?)?\(?\d{2,4}\)?[\s\d]{7,14}$/;
+    return phoneRegex.test(phone);
+  }
 
-      serviceSections.forEach((section) => {
-        const textContent = section.textContent.toLowerCase();
-        const matches = textContent.includes(query);
-        section.style.display = matches ? '' : 'none';
-      });
+  function showError(elementId, message) {
+    const errorElement = document.getElementById(elementId);
+    if (errorElement) {
+      errorElement.textContent = message;
+    }
+  }
 
-      if (searchStatus) {
-        const visibleCount = document.querySelectorAll('section[data-category]:not([style*="display: none"])').length;
-        searchStatus.textContent = query ? `Showing ${visibleCount} result${visibleCount !== 1 ? 's' : ''} for "${searchInput.value}"` : '';
+  function clearErrors(form) {
+    const errorElements = form.querySelectorAll('.error-message');
+    errorElements.forEach((el) => el.textContent = '');
+  }
+
+  // ENQUIRY FORM HANDLING - AJAX submission with cost/availability response
+  function initEnquiryForm() {
+    const form = document.getElementById('enquiryForm');
+    const status = document.getElementById('enquiryStatus');
+
+    if (!form) return;
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      clearErrors(form);
+
+      const name = document.getElementById('enquiryName').value.trim();
+      const surname = document.getElementById('enquirySurname').value.trim();
+      const inquiry = document.getElementById('inquiry').value;
+      const email = document.getElementById('enquiryEmail').value.trim();
+      const mobile = document.getElementById('enquiryMobile').value.trim();
+      let isValid = true;
+
+      // Validate name
+      if (!name) {
+        showError('nameError', 'Please enter your name');
+        isValid = false;
       }
-    }
 
-    function sortServices() {
-      const sortValue = sortSelect.value;
-      if (!membershipContainer || sortValue === 'default') return;
+      // Validate surname
+      if (!surname) {
+        showError('surnameError', 'Please enter your surname');
+        isValid = false;
+      }
 
-      const itemsArray = Array.from(membershipItems);
-      itemsArray.sort((a, b) => {
-        const priceA = parseInt(a.dataset.price) || 0;
-        const priceB = parseInt(b.dataset.price) || 0;
-        return sortValue === 'price-asc' ? priceA - priceB : priceB - priceA;
-      });
+      // Validate inquiry type
+      if (!inquiry) {
+        showError('inquiryError', 'Please select an inquiry type');
+        isValid = false;
+      }
 
-      itemsArray.forEach((item) => membershipContainer.appendChild(item));
-    }
+      // Validate email
+      if (!email || !validateEmail(email)) {
+        showError('emailError', 'Please enter a valid email address');
+        isValid = false;
+      }
 
-    searchInput.addEventListener('input', filterServices);
-    sortSelect.addEventListener('change', sortServices);
+      // Validate mobile
+      if (!mobile || !validatePhone(mobile)) {
+        showError('mobileError', 'Please enter a valid phone number');
+        isValid = false;
+      }
+
+      if (!isValid) {
+        status.textContent = 'Please correct the errors above.';
+        status.style.color = '#ff6b6b';
+        return;
+      }
+
+      // AJAX submission - simulate form processing with pricing/availability info
+      const priceInfo = {
+        'membership': 'Memberships start at R399/month. We offer Basic, Premium, and VIP options.',
+        'personal-training': 'Personal training sessions start at R299 per session. Package discounts available.',
+        'classes': 'Group classes are included in Premium (R699) and VIP (R999) memberships.',
+        'billing': 'Our billing department will contact you within 24 hours regarding account matters.',
+        'volunteer': 'Volunteer opportunities available for community events and youth programs. Applications reviewed monthly.',
+        'sponsor': 'Sponsorship packages start at R1500/month. Contact our partnership team for details.',
+        'general': 'Thank you for your enquiry. We will respond within 24 hours.'
+      };
+
+      status.innerHTML = `
+        <strong>Thank you, ${name}!</strong><br>
+        ${priceInfo[inquiry] || 'We will respond with information shortly.'}<br>
+        A confirmation has been sent to ${email}.
+      `;
+      status.style.color = '#b7f7d1';
+
+      // Clean up form after delay
+      setTimeout(() => {
+        form.reset();
+      }, 2000);
+    });
+  }
+
+  // CONTACT FORM HANDLING - AJAX submission for general messages
+  function initContactForm() {
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('contactStatus');
+
+    if (!form) return;
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      clearErrors(form);
+
+      const name = document.getElementById('contactName').value.trim();
+      const email = document.getElementById('contactEmail').value.trim();
+      const phone = document.getElementById('contactPhone').value.trim();
+      const messageType = document.getElementById('messageType').value;
+      const message = document.getElementById('contactMessage').value.trim();
+      let isValid = true;
+
+      // Validate name
+      if (!name) {
+        showError('nameError', 'Please enter your name');
+        isValid = false;
+      }
+
+      // Validate email
+      if (!email || !validateEmail(email)) {
+        showError('emailError', 'Please enter a valid email address');
+        isValid = false;
+      }
+
+      // Validate phone (optional but format check if provided)
+      if (phone && !validatePhone(phone)) {
+        showError('phoneError', 'Please enter a valid phone number');
+        isValid = false;
+      }
+
+      // Validate message type
+      if (!messageType) {
+        showError('typeError', 'Please select a message type');
+        isValid = false;
+      }
+
+      // Validate message
+      if (!message) {
+        showError('messageError', 'Please enter your message');
+        isValid = false;
+      }
+
+      if (!isValid) {
+        status.textContent = 'Please correct the errors above.';
+        status.style.color = '#ff6b6b';
+        return;
+      }
+
+      // AJAX submission - compile email data for recipient
+      const emailData = {
+        to: 'hello@flexzonegym.co.za',
+        subject: `FlexZone Gym - ${messageType.charAt(0).toUpperCase() + messageType.slice(1)} from ${name}`,
+        body: `
+Name: ${name}
+Email: ${email}
+Phone: ${phone || 'Not provided'}
+Message Type: ${messageType}
+
+Message:
+${message}
+        `
+      };
+
+      // Simulate AJAX email submission
+      status.innerHTML = `
+        <strong>Message Sent!</strong><br>
+        Your message has been sent to our team.<br>
+        We will respond within 24 hours.
+      `;
+      status.style.color = '#b7f7d1';
+
+      // Reset form after delay
+      setTimeout(() => {
+        form.reset();
+      }, 2000);
+    });
   }
 })();
